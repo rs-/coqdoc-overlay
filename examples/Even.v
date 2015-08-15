@@ -1,3 +1,5 @@
+Require Import Program.Tactics.
+
 Inductive Even : nat -> Prop :=
 | zero_even : Even 0
 | SS_even : forall n, Even n -> Even (S (S n)).
@@ -21,7 +23,7 @@ match n with
 end.
 (** second case: prove that 1 is not even *)
 Next Obligation.
-  intros _ _ E.
+  intros E.
   inversion E.
 Defined.
 (** recursive call returned that n is even *)
